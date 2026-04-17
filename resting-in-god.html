@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Resting in God — DMin Virtual Retreat Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --forest: #2d4a2d;
+    --forest-dark: #1e3320;
+    --forest-light: #3d6b3d;
+    --forest-muted: #4a6741;
+    --parchment: #f5f0e8;
+    --parchment-dark: #ede5d4;
+    --parchment-deeper: #e0d5c0;
+    --gold: #b8933a;
+    --gold-light: #d4aa55;
+    --text-dark: #2a2218;
+    --text-mid: #4a3f2e;
+    --text-muted: #7a6e5e;
+    --white: #fffef9;
+    --shadow: rgba(30,51,32,0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--parchment);
+    color: var(--text-dark);
+    font-family: 'Lora', Georgia, serif;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 10% 20%, rgba(45,74,45,0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, rgba(184,147,58,0.07) 0%, transparent 50%);
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--forest-dark);
+    background-image: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 60%, var(--forest-muted) 100%);
+    color: var(--white);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .header-eyebrow {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    margin-bottom: 0.6rem;
+    opacity: 0.9;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .header-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: rgba(255,254,249,0.78);
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+  }
+  .header-verse {
+    display: inline-block;
+    background: rgba(255,254,249,0.1);
+    border: 1px solid rgba(255,254,249,0.2);
+    border-radius: 4px;
+    padding: 0.6rem 1.4rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--parchment-dark);
+    letter-spacing: 0.01em;
+  }
+  .header-ref {
+    display: block;
+    font-style: normal;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-top: 0.3rem;
+    color: var(--gold-light);
+    font-family: 'Lora', serif;
+  }
+
+  /* ── TABS ── */
+  .tab-nav-wrapper {
+    background: var(--forest);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+  .tab-nav {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: rgba(255,254,249,0.65);
+    font-family: 'Lora', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    transition: color 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+  .tab-btn .tab-icon { font-size: 1.1rem; }
+  .tab-btn:hover { color: rgba(255,254,249,0.9); }
+  .tab-btn.active {
+    color: var(--white);
+    font-weight: 500;
+  }
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold-light);
+    border-radius: 2px 2px 0 0;
+  }
+
+  /* ── CONTENT ── */
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .page-body {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--parchment-deeper);
+  }
+  .section-tag {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--forest-muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    font-weight: 700;
+    color: var(--forest-dark);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .section-desc {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+
+  /* ── PROSE ── */
+  .prose p {
+    font-size: 1.02rem;
+    line-height: 1.82;
+    color: var(--text-mid);
+    margin-bottom: 1.1rem;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* ── PULLQUOTE ── */
+  .pullquote {
+    background: var(--forest-dark);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .pullquote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.2rem; left: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    color: var(--gold-light);
+    opacity: 0.25;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .pullquote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+    line-height: 1.6;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+  }
+  .pullquote .attrib {
+    font-family: 'Lora', serif;
+    font-style: normal;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--gold-light);
+    margin-top: 0.7rem;
+    display: block;
+  }
+
+  /* ── TEACHING BLOCK ── */
+  .teaching-block {
+    background: var(--white);
+    border-radius: 10px;
+    border-left: 4px solid var(--forest);
+    padding: 1.5rem 1.8rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(30,51,32,0.06);
+  }
+  .teaching-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--forest-dark);
+    margin-bottom: 0.6rem;
+  }
+  .teaching-block .movement-label {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--forest-muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .teaching-block p {
+    color: var(--text-mid);
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+  .teaching-block ul {
+    margin: 0.5rem 0 0 1.1rem;
+    color: var(--text-mid);
+    font-size: 0.97rem;
+    line-height: 1.75;
+  }
+  .contrast-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.2rem 0 0;
+  }
+  .contrast-col {
+    background: var(--parchment);
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+  }
+  .contrast-col h4 {
+    font-family: 'Lora', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .contrast-col ul {
+    margin: 0 0 0 1rem;
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+  @media (max-width: 520px) { .contrast-box { grid-template-columns: 1fr; } }
+
+  /* ── PRACTICE CARD ── */
+  .practice-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem 1.8rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 10px rgba(30,51,32,0.07);
+    border-top: 3px solid var(--gold);
+  }
+  .practice-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--forest-dark);
+    margin-bottom: 0.7rem;
+  }
+  .practice-card ol {
+    padding-left: 1.2rem;
+    color: var(--text-mid);
+    font-size: 0.97rem;
+    line-height: 1.8;
+  }
+  .step-pill {
+    display: inline-block;
+    background: var(--forest);
+    color: var(--white);
+    font-family: 'Lora', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+  }
+
+  /* ── BREATH PRAYER BOX ── */
+  .breath-prayer {
+    background: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--white);
+  }
+  .breath-prayer h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.06em;
+  }
+  .breath-lines {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .breath-item {
+    background: rgba(255,254,249,0.1);
+    border: 1px solid rgba(255,254,249,0.2);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    min-width: 160px;
+  }
+  .breath-label {
+    font-family: 'Lora', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    margin-bottom: 0.4rem;
+    display: block;
+    font-style: italic;
+  }
+  .breath-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--white);
+  }
+  .breath-prayer .note {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: rgba(255,254,249,0.6);
+  }
+
+  /* ── EXAMEN ── */
+  .examen-step {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1.3rem 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 1px 6px rgba(30,51,32,0.06);
+  }
+  .examen-num {
+    background: var(--forest);
+    color: var(--white);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .examen-step h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--forest-dark);
+    margin-bottom: 0.3rem;
+  }
+  .examen-step p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ── CONVO GUIDELINES ── */
+  .guideline-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .guideline-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--parchment-deeper);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+  .guideline-list li:last-child { border-bottom: none; }
+  .gl-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+  /* ── REFLECTION AREA ── */
+  .reflection-wrapper {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 3px 16px rgba(30,51,32,0.08);
+    margin-top: 2rem;
+  }
+  .reflection-wrapper h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--forest-dark);
+    margin-bottom: 0.4rem;
+  }
+  .reflection-wrapper .sub {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .reflection-prompt {
+    background: var(--parchment);
+    border-radius: 8px;
+    padding: 1rem 1.3rem;
+    margin-bottom: 1.2rem;
+    border-left: 3px solid var(--gold);
+  }
+  .reflection-prompt label {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--forest-dark);
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+  .reflection-prompt textarea {
+    width: 100%;
+    background: var(--white);
+    border: 1px solid var(--parchment-deeper);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+    resize: vertical;
+    min-height: 90px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .reflection-prompt textarea:focus {
+    border-color: var(--forest);
+  }
+  .reflection-prompt textarea::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .email-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  @media (max-width: 540px) { .email-fields { grid-template-columns: 1fr; } }
+  .field-group { display: flex; flex-direction: column; gap: 0.3rem; }
+  .field-group label {
+    font-family: 'Lora', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .field-group input {
+    background: var(--parchment);
+    border: 1px solid var(--parchment-deeper);
+    border-radius: 6px;
+    padding: 0.6rem 0.9rem;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .field-group input:focus { border-color: var(--forest); background: var(--white); }
+
+  .email-btn {
+    background: var(--forest);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 0.85rem 2rem;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .email-btn:hover { background: var(--forest-dark); transform: translateY(-1px); }
+  .email-btn:active { transform: translateY(0); }
+
+  #email-status {
+    margin-top: 0.8rem;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    min-height: 1.2rem;
+  }
+  #email-status.success { color: var(--forest-muted); }
+  #email-status.error { color: #8b3a3a; }
+
+  /* ── CLOSING BLESSING ── */
+  .blessing-box {
+    background: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest-muted) 100%);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: var(--white);
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .blessing-box::before {
+    content: '✦';
+    position: absolute;
+    top: -1rem; left: -1rem;
+    font-size: 8rem;
+    color: rgba(255,254,249,0.04);
+    pointer-events: none;
+  }
+  .blessing-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+  .blessing-box p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    line-height: 1.75;
+    color: var(--white);
+    max-width: 560px;
+    margin: 0 auto 0.6rem;
+  }
+  .blessing-verse {
+    font-family: 'Lora', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-light);
+    margin-top: 1rem;
+    display: block;
+  }
+
+  /* ── SCRIPTURE BOX ── */
+  .scripture-box {
+    background: var(--parchment-dark);
+    border: 1px solid var(--parchment-deeper);
+    border-radius: 8px;
+    padding: 1.5rem 1.8rem;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+  .scripture-box p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+    color: var(--text-dark);
+    line-height: 1.75;
+    margin-bottom: 0.5rem;
+  }
+  .scripture-box .ref {
+    font-family: 'Lora', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    color: var(--forest-muted);
+  }
+
+  /* ── DIVIDER ── */
+  .ornament { text-align: center; color: var(--gold); font-size: 1.2rem; margin: 1.8rem 0; letter-spacing: 0.4rem; opacity: 0.6; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--forest-dark);
+    color: rgba(255,254,249,0.55);
+    text-align: center;
+    padding: 1.5rem;
+    font-family: 'Lora', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+  }
+  .site-footer a { color: var(--gold-light); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <p class="header-eyebrow">DMin Virtual Retreat · Review &amp; Reflection</p>
+  <h1 class="header-title">Resting in God</h1>
+  <p class="header-subtitle">Silence, Solitude, and Recovering from Ministry Fatigue</p>
+  <div class="header-verse">
+    "Come to me, all who labor and are heavy laden, and I will give you rest."
+    <span class="header-ref">Matthew 11:28</span>
+  </div>
+</header>
+
+<!-- TAB NAV -->
+<nav class="tab-nav-wrapper" role="navigation" aria-label="Section navigation">
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab('opening')" id="btn-opening">
+      <span class="tab-icon">🌅</span>Opening
+    </button>
+    <button class="tab-btn" onclick="showTab('teaching')" id="btn-teaching">
+      <span class="tab-icon">📖</span>Teaching
+    </button>
+    <button class="tab-btn" onclick="showTab('silence')" id="btn-silence">
+      <span class="tab-icon">🌿</span>Silence
+    </button>
+    <button class="tab-btn" onclick="showTab('conversation')" id="btn-conversation">
+      <span class="tab-icon">🤝</span>Conversation
+    </button>
+    <button class="tab-btn" onclick="showTab('examen')" id="btn-examen">
+      <span class="tab-icon">🙏</span>Examen
+    </button>
+    <button class="tab-btn" onclick="showTab('blessing')" id="btn-blessing">
+      <span class="tab-icon">✨</span>Blessing
+    </button>
+    <button class="tab-btn" onclick="showTab('reflection')" id="btn-reflection">
+      <span class="tab-icon">✍️</span>My Reflections
+    </button>
+  </div>
+</nav>
+
+<!-- ===================== TAB 1: OPENING ===================== -->
+<div class="tab-content active" id="tab-opening">
+  <div class="page-body">
+    <div class="section-header">
+      <span class="section-tag">Part One · 15 Minutes</span>
+      <h2 class="section-title">Opening Stillness &amp; Scripture</h2>
+      <p class="section-desc">Arriving spiritually, not just logging in mentally.</p>
+    </div>
+
+    <div class="prose">
+      <p>We began our retreat not with information, but with an <em>invitation</em>. Before the teaching, before the questions, before the breakout rooms — we were asked simply to <strong>arrive</strong>. To bring our whole selves, weary and all, into the presence of God.</p>
+      <p>Our facilitator set the tone with a gentle but important word: <em>"This is not a class to perform in, but a space to rest in God."</em> That sentence matters. For those of us in ministry, performance can become instinctive — we show up ready to contribute, ready to be seen as engaged. But this retreat asked something different of us.</p>
+    </div>
+
+    <div class="breath-prayer">
+      <h3>✦ The Breath Prayer ✦</h3>
+      <div class="breath-lines">
+        <div class="breath-item">
+          <span class="breath-label">Inhale slowly…</span>
+          <span class="breath-text">"Come to me…"</span>
+        </div>
+        <div class="breath-item">
+          <span class="breath-label">Exhale slowly…</span>
+          <span class="breath-text">"I will give you rest…"</span>
+        </div>
+      </div>
+      <p class="note">Take a moment now to breathe this prayer. Slowly. Deliberately. Let these words drop below your mind and into your chest.</p>
+    </div>
+
+    <div class="scripture-box">
+      <p>"Come to me, all who labor and are heavy laden, and I will give you rest. Take my yoke upon you, and learn from me, for I am gentle and lowly in heart, and you will find rest for your souls. For my yoke is easy, and my burden is light."</p>
+      <span class="ref">— Matthew 11:28–30 (ESV)</span>
+    </div>
+
+    <div class="prose">
+      <p>We read this passage twice — slowly, in the tradition of <em>Lectio Divina</em>. The goal was not to analyze it, but to <em>receive</em> it. We were then asked: <strong>"What word or phrase is God highlighting to you?"</strong></p>
+      <p>Perhaps it was the word <em>come</em>. Or the phrase <em>heavy laden</em>. Or the promise <em>you will find rest for your souls</em>. Whatever it was, that word became your entry point into the rest of our retreat together.</p>
+    </div>
+
+    <div class="pullquote">
+      <p>The retreat begins not when you have settled your thoughts, but when you have given God permission to meet you exactly where you are.</p>
+    </div>
+
+    <div class="prose">
+      <p>We closed the opening with five minutes of silent reflection — sitting quietly with the word or phrase that surfaced. Not to solve anything. Not to figure out what it means yet. Simply to <em>be still</em>, and let God be God.</p>
+    </div>
+
+    <div class="ornament">· · ✦ · ·</div>
+
+    <div class="practice-card">
+      <h3>🔁 Revisit This Practice</h3>
+      <p style="color:var(--text-mid); font-size:0.97rem; line-height:1.75; margin-bottom:0.8rem;">You can return to this opening practice at any time — not just during a formal retreat. Try it this week:</p>
+      <ol>
+        <li><span class="step-pill">1</span>Find a quiet spot. Take three slow breaths.</li>
+        <li><span class="step-pill">2</span>Read Matthew 11:28–30 once, slowly.</li>
+        <li><span class="step-pill">3</span>Ask: <em>What word or phrase is standing out to me today?</em></li>
+        <li><span class="step-pill">4</span>Sit in silence with that phrase for 3–5 minutes.</li>
+        <li><span class="step-pill">5</span>Write what you sense, if anything, before moving on with your day.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB 2: TEACHING ===================== -->
+<div class="tab-content" id="tab-teaching">
+  <div class="page-body">
+    <div class="section-header">
+      <span class="section-tag">Part Two · 45 Minutes</span>
+      <h2 class="section-title">The Rest We Resist</h2>
+      <p class="section-desc">Ministry fatigue is not solved by better strategy, but by deeper surrender to Jesus.</p>
+    </div>
+
+    <div class="prose">
+      <p>The teaching began by naming something most ministry leaders rarely say out loud: <em>we are tired</em>. Not just physically tired from a demanding week. Many of us carry a tiredness that sleep does not fix — a fatigue that is layered, complex, and often hidden beneath our public ministry persona.</p>
+    </div>
+
+    <!-- A. Reality of Ministry Fatigue -->
+    <div class="teaching-block">
+      <span class="movement-label">Part A · 10 Minutes</span>
+      <h3>The Reality of Ministry Fatigue</h3>
+      <p>We were gently asked to name our experience without minimizing it. Ministry fatigue often shows up in these forms:</p>
+      <ul>
+        <li><strong>Chronic tiredness</strong> — a baseline weariness that doesn't lift</li>
+        <li><strong>Emotional depletion</strong> — giving to others until there is nothing left for yourself or your family</li>
+        <li><strong>Hidden discouragement</strong> — disappointed in ministry results, disappointed in people, or disappointed in yourself</li>
+        <li><strong>Performing instead of pastoring</strong> — going through the motions because the genuine love and energy have drained away</li>
+      </ul>
+    </div>
+
+    <div class="pullquote">
+      <p>"Many of us are not just tired — we are carrying more than Jesus asked us to carry."</p>
+    </div>
+
+    <div class="prose">
+      <p>This is the crucial diagnostic. Jesus addresses in Matthew 11 those who are "heavy laden" — and for many pastors, the heaviness is not just the work itself. It is the weight of <em>unasked expectations, identity entanglement, and self-reliance</em> layered on top of the work.</p>
+    </div>
+
+    <!-- B. The Invitation -->
+    <div class="teaching-block">
+      <span class="movement-label">Part B · 15 Minutes</span>
+      <h3>The Invitation of Jesus: Three Movements</h3>
+      <p>The text offers three distinct and progressive invitations. Each is worth sitting with carefully:</p>
+
+      <div style="margin-top:1rem;">
+        <p><strong>1. "Come to Me" → Relational, not operational</strong></p>
+        <p style="margin-top:0.3rem;">Jesus does not say, "Come to a method." He doesn't say, "Come to a renewal program." He says, <em>Come to Me</em> — to a <strong>Person</strong>. Rest begins not with stopping work, but with coming to Jesus. This is the Reformational heart of spiritual renewal: it is always about relationship before technique.</p>
+      </div>
+
+      <div style="margin-top:1.2rem;">
+        <p><strong>2. "Take My Yoke" → Shared life, not solo burden</strong></p>
+        <p style="margin-top:0.3rem;">A yoke in the first-century context was used for two animals working together — the stronger guiding the weaker. Jesus is not saying <em>remove all burden</em>. He is saying, <em>let's carry it together</em>. Notice the contrast:</p>
+        <div class="contrast-box">
+          <div class="contrast-col">
+            <h4>OUR YOKE</h4>
+            <ul>
+              <li>Driven by pressure</li>
+              <li>Motivated by expectation</li>
+              <li>Rooted in self-reliance</li>
+              <li>Heavy &amp; isolating</li>
+            </ul>
+          </div>
+          <div class="contrast-col">
+            <h4>HIS YOKE</h4>
+            <ul>
+              <li>Carried in grace</li>
+              <li>Aligned with God's call</li>
+              <li>Shared with companionship</li>
+              <li>Easy &amp; light</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.2rem;">
+        <p><strong>3. "You Will Find Rest for Your Souls" → Deep rest</strong></p>
+        <p style="margin-top:0.3rem;">This is not vacation rest. Not physical rest (though we need that too). This is <em>soul-level rest</em> — an inner quietness that persists even when ministry is demanding. It is freedom from striving, from needing to prove, from anxious self-monitoring. This is the rest the world cannot offer and the self cannot manufacture. It must be <em>found</em> — in Jesus.</p>
+      </div>
+    </div>
+
+    <!-- C. Why We Resist -->
+    <div class="teaching-block">
+      <span class="movement-label">Part C · 10 Minutes</span>
+      <h3>Why We Struggle to Rest</h3>
+      <p>If rest is Jesus's gift and invitation, why do we resist it? The teaching named several heart-level issues worth honest examination:</p>
+      <ul>
+        <li><strong>Identity tied to ministry output</strong> — "If I am not producing, I am not valuable."</li>
+        <li><strong>Fear of irrelevance</strong> — "If I slow down, I will be forgotten or replaced."</li>
+        <li><strong>Messiah complex</strong> — "If I don't do this, it won't get done."</li>
+        <li><strong>Inability to be still</strong> — Silence feels threatening when we have been conditioned to equate busyness with faithfulness.</li>
+      </ul>
+    </div>
+
+    <div class="pullquote">
+      <p>"What are you afraid will happen if you slow down?"</p>
+      <span class="attrib">— A question worth sitting with</span>
+    </div>
+
+    <!-- D. Gentle and Lowly -->
+    <div class="teaching-block">
+      <span class="movement-label">Part D · 10 Minutes</span>
+      <h3>The Way of Jesus: Gentle and Lowly</h3>
+      <p>Perhaps the most healing part of the teaching was this: <strong>Jesus is not harsh with tired leaders.</strong></p>
+      <p style="margin-top:0.8rem;">"For I am gentle and lowly in heart…" (v.29) — this is the only place in all four Gospels where Jesus explicitly describes His own heart. And what He offers is not a demanding master disappointed with underperformance. He is <em>gentle</em>. He is <em>lowly</em> — which means He comes down to where you are.</p>
+    </div>
+
+    <div class="pullquote">
+      <p>"The One you are coming to is not demanding more — He is offering rest."</p>
+    </div>
+
+    <div class="prose">
+      <p>This is the theological ground of our retreat. We can rest because the One who invites us to rest is <em>safe</em>. He knows our frame. He remembers that we are dust (Psalm 103:14). He is not standing over us with a performance review — He is standing before us with an open invitation.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB 3: SILENCE ===================== -->
+<div class="tab-content" id="tab-silence">
+  <div class="page-body">
+    <div class="section-header">
+      <span class="section-tag">Part Three · 30 Minutes</span>
+      <h2 class="section-title">Guided Silence &amp; Solitude</h2>
+      <p class="section-desc">"Now we move from talking about rest… to entering it."</p>
+    </div>
+
+    <div class="prose">
+      <p>This is where the retreat moved from <em>content</em> to <em>encounter</em>. After the teaching, we were invited to set aside words — our own and others' — and simply be present with God. For many of us, this is the most unfamiliar and sometimes the most uncomfortable part of a retreat.</p>
+      <p>The structure was intentional, guiding us gently into deeper quiet rather than throwing us into the deep end of silence.</p>
+    </div>
+
+    <div class="practice-card">
+      <h3>📋 The Structure of Our Silence</h3>
+      <ol>
+        <li style="margin-bottom:0.8rem;"><span class="step-pill">Prepare</span> We were asked to turn off cameras if helpful, sit comfortably, set aside phones, and have a journal nearby. No multitasking. Full presence.</li>
+        <li style="margin-bottom:0.8rem;"><span class="step-pill">Enter</span> Our guide led us slowly through a visualization: <em>"Picture yourself coming to Jesus… You are carrying something heavy… What is it?"</em> — then a pause — <em>"Now hear Him say: 'Come to me…'"</em></li>
+        <li style="margin-bottom:0.8rem;"><span class="step-pill">Silence</span> We were given 15–18 minutes of unstructured quiet, with three questions to hold (not answer analytically, but sit with prayerfully).</li>
+        <li><span class="step-pill">Return</span> A gentle invitation back: a deep breath, then writing anything we sensed or received.</li>
+      </ol>
+    </div>
+
+    <div class="pullquote">
+      <p>Silence is not the absence of God. It is often the clearest space in which to hear Him.</p>
+    </div>
+
+    <div class="teaching-block">
+      <h3>The Three Questions of Silence</h3>
+      <p>These were the prompts displayed during our silent time. They are not meant to be answered in sequence like a worksheet, but held prayerfully — like open palms rather than clenched fists:</p>
+      <ul style="margin-top:0.8rem; list-style:none; padding:0;">
+        <li style="padding:0.6rem 0; border-bottom:1px solid var(--parchment-deeper);">🌿 <em>What am I carrying right now?</em></li>
+        <li style="padding:0.6rem 0; border-bottom:1px solid var(--parchment-deeper);">🌿 <em>What is Jesus inviting me to release?</em></li>
+        <li style="padding:0.6rem 0;">🌿 <em>What does it mean for me to take His yoke?</em></li>
+      </ul>
+    </div>
+
+    <div class="prose">
+      <p>You may wish to return to this practice on your own. Even 10–15 minutes of intentional silence — not as spiritual performance, but as simple attentiveness — can become a lifeline in a demanding ministry season. The Desert Fathers called this <em>hesychia</em>: the inner stillness that is not emptiness, but the fullness of God's presence in quiet.</p>
+    </div>
+
+    <div class="breath-prayer" style="margin-top:2rem;">
+      <h3>✦ Try It Now ✦</h3>
+      <p style="color:rgba(255,254,249,0.8); font-family:'Lora',serif; font-size:0.95rem; line-height:1.7; margin-bottom:1rem;">
+        Set aside 5 minutes. Use the breath prayer to settle.<br/>
+        Then simply ask: <em>What am I carrying right now?</em><br/>
+        Let whatever surfaces, surface. Don't fix it. Bring it to Jesus.
+      </p>
+      <div class="breath-lines">
+        <div class="breath-item">
+          <span class="breath-label">Inhale…</span>
+          <span class="breath-text">"Come to me…"</span>
+        </div>
+        <div class="breath-item">
+          <span class="breath-label">Exhale…</span>
+          <span class="breath-text">"I will give you rest…"</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB 4: CONVERSATION ===================== -->
+<div class="tab-content" id="tab-conversation">
+  <div class="page-body">
+    <div class="section-header">
+      <span class="section-tag">Part Four · 60 Minutes</span>
+      <h2 class="section-title">Spiritual Conversations</h2>
+      <p class="section-desc">Sharing what surfaced — in triads, with sacred attentiveness.</p>
+    </div>
+
+    <div class="prose">
+      <p>After silence, we moved into one of the most powerful elements of the retreat: small-group spiritual conversation. In triads, we were given the gift of being <em>truly heard</em> — not analyzed, not counseled, not evaluated. Simply heard, with prayerful attention.</p>
+      <p>This is a different kind of conversation than we typically practice in ministry settings. It requires a particular posture — one that many of us had to be intentionally reminded of.</p>
+    </div>
+
+    <div class="teaching-block">
+      <h3>The Guidelines We Were Given</h3>
+      <ul class="guideline-list" style="list-style:none;padding:0;margin:0.8rem 0 0;">
+        <li class="guideline-list li" style="display:flex;gap:0.8rem;padding:0.8rem 0;border-bottom:1px solid var(--parchment-deeper);font-size:0.97rem;color:var(--text-mid);line-height:1.65;align-items:flex-start;">
+          <span style="font-size:1.2rem;flex-shrink:0;">👂</span>
+          <span><strong>Listen, don't fix.</strong> Our role in this space is not to solve each other's ministry problems. It is to listen with full presence.</span>
+        </li>
+        <li style="display:flex;gap:0.8rem;padding:0.8rem 0;border-bottom:1px solid var(--parchment-deeper);font-size:0.97rem;color:var(--text-mid);line-height:1.65;align-items:flex-start;">
+          <span style="font-size:1.2rem;flex-shrink:0;">🚫</span>
+          <span><strong>No advice unless asked.</strong> Even well-intentioned advice can short-circuit the deeper work God is doing in someone. Hold back the impulse to help with solutions.</span>
+        </li>
+        <li style="display:flex;gap:0.8rem;padding:0.8rem 0;border-bottom:1px solid var(--parchment-deeper);font-size:0.97rem;color:var(--text-mid);line-height:1.65;align-items:flex-start;">
+          <span style="font-size:1.2rem;flex-shrink:0;">🔒</span>
+          <span><strong>Honor confidentiality.</strong> What is shared in the triad stays in the triad. This is sacred trust.</span>
+        </li>
+        <li style="display:flex;gap:0.8rem;padding:0.8rem 0;font-size:0.97rem;color:var(--text-mid);line-height:1.65;align-items:flex-start;">
+          <span style="font-size:1.2rem;flex-shrink:0;">🙏</span>
+          <span><strong>Pay attention to God, not just the story.</strong> As someone shares, you are not just listening to their narrative — you are listening for where God might be at work in it.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="practice-card">
+      <h3>📋 The Sharing Flow</h3>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin-bottom:0.8rem;">Each person took approximately 15–18 minutes, sharing around three questions:</p>
+      <ol>
+        <li style="margin-bottom:0.6rem;"><span class="step-pill">1</span> What surfaced during our time of silence?</li>
+        <li style="margin-bottom:0.6rem;"><span class="step-pill">2</span> Where do you feel weary right now?</li>
+        <li><span class="step-pill">3</span> What might Jesus be inviting you into?</li>
+      </ol>
+    </div>
+
+    <div class="teaching-block">
+      <h3>How Listeners Responded</h3>
+      <p>After each person shared, the others responded <strong>only</strong> in these two ways — nothing more:</p>
+      <div style="margin-top:0.8rem; padding:0.8rem 1.2rem; background:var(--parchment); border-radius:6px; border-left:3px solid var(--gold);">
+        <p style="margin-bottom:0.5rem;">💬 <em>"What I hear God might be doing in you is…"</em></p>
+        <p>🙏 A short, unhurried prayer for the person.</p>
+      </div>
+      <p style="margin-top:0.8rem; color:var(--text-muted); font-style:italic; font-size:0.93rem;">This restraint is not coldness — it is reverence. We are witnesses to the Spirit's work, not managers of it.</p>
+    </div>
+
+    <div class="pullquote">
+      <p>To be truly listened to — without being analyzed or advised — is itself a form of grace. It mirrors the way God receives us.</p>
+    </div>
+
+    <div class="prose">
+      <p>This kind of spiritual conversation is one of the most underutilized gifts available to ministry leaders. We rarely give ourselves or each other the experience of being genuinely heard. These conversations reminded us that <em>we are not alone</em> in our fatigue — and that the Spirit is at work not despite our weakness, but through our willingness to name it honestly.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB 5: EXAMEN ===================== -->
+<div class="tab-content" id="tab-examen">
+  <div class="page-body">
+    <div class="section-header">
+      <span class="section-tag">Part Five · 15 Minutes</span>
+      <h2 class="section-title">The Examen &amp; Listening Prayer</h2>
+      <p class="section-desc">A simplified Ignatian review of the day and season.</p>
+    </div>
+
+    <div class="prose">
+      <p>We closed the substantive portion of the retreat with a time of structured reflection called the <em>Examen</em> — a practice rooted in Ignatian spirituality, adapted here for ministry leaders in a season of fatigue. Unlike journaling or note-taking, the Examen is not analytical. It is a prayerful review, an attentive listening for where God has been present in our experience.</p>
+      <p>The facilitator led us slowly through four movements. Each is a gentle question — not a demand for a full answer, but an invitation to notice:</p>
+    </div>
+
+    <div class="examen-step">
+      <div class="examen-num">1</div>
+      <div>
+        <h4>Gratitude</h4>
+        <p>"What are you thankful for in this season?"<br/>
+        Begin not with problems, but with gifts. Even in fatigue, there are signs of grace. What has God given you — in relationships, in moments of unexpected joy, in glimpses of His faithfulness — that you can name with thanks?</p>
+      </div>
+    </div>
+
+    <div class="examen-step">
+      <div class="examen-num">2</div>
+      <div>
+        <h4>Awareness</h4>
+        <p>"Where have you felt most drained?"<br/>
+        This is not a complaint session — it is honest acknowledgment. God does not ask us to pretend we are well when we are weary. Where have you felt the most depleted? What has been heaviest to carry? Name it with honesty before the One who already knows.</p>
+      </div>
+    </div>
+
+    <div class="examen-step">
+      <div class="examen-num">3</div>
+      <div>
+        <h4>Invitation</h4>
+        <p>"Where is Jesus inviting you to rest?"<br/>
+        Not just rest in general — but specifically, in your life and ministry right now. Is He inviting you to slow a particular pace? To release a particular burden? To receive a particular grace? Listen quietly for a few moments before answering.</p>
+      </div>
+    </div>
+
+    <div class="examen-step">
+      <div class="examen-num">4</div>
+      <div>
+        <h4>Response</h4>
+        <p>"What is one small step of surrender?"<br/>
+        Not a strategy. Not a ministry plan. One small act of yielding to Jesus — this week, in your specific context. It could be canceling one meeting to simply pray. It could be saying "no" to one commitment. It could be asking a trusted friend to pray for you. What is the one small step?</p>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <p>The Examen is not about reviewing your performance. It is about reviewing God's faithfulness — and your response to His invitation.</p>
+    </div>
+
+    <div class="prose">
+      <p>The Examen is most powerful when done regularly — not just in a retreat setting. Many spiritual directors recommend a brief version (10–15 minutes) at the close of each day, or at least weekly. Over time, it trains us to see our lives through the lens of God's presence rather than our own self-assessment.</p>
+    </div>
+
+    <div class="scripture-box">
+      <p>"Search me, O God, and know my heart! Try me and know my thoughts! And see if there be any grievous way in me, and lead me in the way everlasting."</p>
+      <span class="ref">— Psalm 139:23–24</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB 6: BLESSING ===================== -->
+<div class="tab-content" id="tab-blessing">
+  <div class="page-body">
+    <div class="section-header">
+      <span class="section-tag">Part Six · 15 Minutes</span>
+      <h2 class="section-title">Closing Prayer &amp; Blessing</h2>
+      <p class="section-desc">Sent from rest — not running toward it.</p>
+    </div>
+
+    <div class="prose">
+      <p>We did not end the retreat with a challenge or a call to action. We ended with a <em>blessing</em>. This itself is a counter-cultural act in ministry formation: to close not with "now go do more," but with "you are seen, you are loved, you are sent."</p>
+      <p>The facilitator prayed over us corporately, then spoke the promise of Matthew 11 over us slowly — as a benediction, not a command:</p>
+    </div>
+
+    <div class="blessing-box">
+      <h3>✦ The Prayer Prayed Over Us ✦</h3>
+      <p>"Lord Jesus,<br/>You see Your servants…<br/>Not as machines, but as <em>beloved</em>…<br/>Not as workers who have fallen short,<br/>But as children who have labored long.<br/>Restore what has been depleted.<br/>Quiet what striving has stirred.<br/>And let them find in You<br/>the rest that only You can give."</p>
+    </div>
+
+    <div class="scripture-box">
+      <p>"…and you will find rest for your souls."</p>
+      <span class="ref">— Matthew 11:29b</span>
+    </div>
+
+    <div class="prose">
+      <p>This verse — spoken over us as a benediction — is not a past tense statement. It is a living promise in the present tense: <em>you will find</em>. The rest is available. The invitation stands. Jesus is not withdrawing the offer because the retreat is over.</p>
+    </div>
+
+    <div class="pullquote">
+      <p>You do not leave this retreat and return to life unaided. You leave carrying the same Jesus who invited you in.</p>
+    </div>
+
+    <div class="teaching-block">
+      <h3>Carrying This Forward</h3>
+      <p>As you return to your ministry context, consider anchoring the retreat's fruit in these simple habits:</p>
+      <ul>
+        <li><strong>A daily breath prayer</strong> — even 3 minutes of intentional silence with Matthew 11:28 as your anchor.</li>
+        <li><strong>A weekly Examen</strong> — reviewing the week through the lens of gratitude, awareness, invitation, and response.</li>
+        <li><strong>A trusted spiritual conversation partner</strong> — someone with whom you can practice the kind of listening we experienced in the triad. Not advice-giving, but prayerful, attentive presence.</li>
+        <li><strong>Permission to receive</strong> — you give much in ministry. Practice also receiving: grace, care, rest, love. The yoke is not yours alone.</li>
+      </ul>
+    </div>
+
+    <div class="scripture-box">
+      <p>"He gives power to the faint, and to him who has no might he increases strength. Even youths shall faint and be weary, and young men shall fall exhausted; but they who wait for the Lord shall renew their strength; they shall mount up with wings like eagles…"</p>
+      <span class="ref">— Isaiah 40:29–31</span>
+    </div>
+
+    <div class="prose">
+      <p>May this not be the end of a retreat, but the beginning of a new rhythm — one shaped less by the pace of ministry demands, and more by the gentle, lowly heart of Jesus.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB 7: REFLECTIONS ===================== -->
+<div class="tab-content" id="tab-reflection">
+  <div class="page-body">
+    <div class="section-header">
+      <span class="section-tag">Your Personal Response</span>
+      <h2 class="section-title">My Reflections</h2>
+      <p class="section-desc">Write, pray, and send your reflections to yourself or a trusted companion.</p>
+    </div>
+
+    <div class="prose">
+      <p>Use the space below to capture what God has been speaking to you through this retreat. Take your time. There is no right or wrong answer — only honest response. When you're ready, you can send your reflections to yourself (or a trusted spiritual friend) via email.</p>
+    </div>
+
+    <div class="reflection-wrapper">
+
+      <div class="reflection-prompt">
+        <label>🌅 From the Opening — What word or phrase from Matthew 11:28–30 stayed with you? What do you sense God is highlighting for you personally?</label>
+        <textarea id="r1" rows="4" placeholder="Write your thoughts here…"></textarea>
+      </div>
+
+      <div class="reflection-prompt">
+        <label>📖 From the Teaching — Which aspect of ministry fatigue resonated most honestly with you? (Chronic tiredness? Fear of irrelevance? Performing instead of pastoring?) What did God surface?</label>
+        <textarea id="r2" rows="4" placeholder="Write your thoughts here…"></textarea>
+      </div>
+
+      <div class="reflection-prompt">
+        <label>🌿 From the Silence — What were you carrying when you came into the silence? What, if anything, did Jesus invite you to release?</label>
+        <textarea id="r3" rows="4" placeholder="Write your thoughts here…"></textarea>
+      </div>
+
+      <div class="reflection-prompt">
+        <label>🤝 From the Spiritual Conversation — What did you hear God doing in you (or in others) through the triad sharing? What surprised you?</label>
+        <textarea id="r4" rows="4" placeholder="Write your thoughts here…"></textarea>
+      </div>
+
+      <div class="reflection-prompt">
+        <label>🙏 From the Examen — What is the one small step of surrender Jesus is inviting you to take this week?</label>
+        <textarea id="r5" rows="3" placeholder="Be specific. Small is okay. Name it here."></textarea>
+      </div>
+
+      <div class="reflection-prompt">
+        <label>✨ A Prayer in Your Own Words — Write a simple prayer expressing what is in your heart right now.</label>
+        <textarea id="r6" rows="4" placeholder="Let this be honest and unhurried…"></textarea>
+      </div>
+
+      <div class="ornament">· · ✦ · ·</div>
+
+      <h2>📧 Send Your Reflections</h2>
+      <span class="sub">Send a copy of your reflections to yourself or a trusted spiritual companion. This email is composed in your own mail app — your notes are never stored anywhere.</span>
+
+      <div class="email-fields">
+        <div class="field-group">
+          <label>Your name</label>
+          <input type="text" id="senderName" placeholder="e.g. John David"/>
+        </div>
+        <div class="field-group">
+          <label>Send to (email)</label>
+          <input type="email" id="recipientEmail" placeholder="e.g. you@email.com"/>
+        </div>
+      </div>
+
+      <button class="email-btn" onclick="sendReflections()">
+        ✉️ &nbsp;Open in My Email App
+      </button>
+
+      <p id="email-status"></p>
+
+      <div style="margin-top:1.5rem; padding:1rem 1.3rem; background:var(--parchment); border-radius:8px;">
+        <p style="font-size:0.88rem; color:var(--text-muted); font-style:italic; line-height:1.7;">
+          <strong style="font-style:normal; color:var(--text-mid);">How this works:</strong> Clicking the button above will open your device's default email app (Gmail, Outlook, Apple Mail, etc.) with your reflections already composed. You can review and send at any time. Nothing is submitted to a server — all your words stay with you.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>Real Life Christian Communities &nbsp;·&nbsp; <a href="https://rlcc.ph/" target="_blank">rlcc.ph</a> &nbsp;·&nbsp; DMin Virtual Retreat Review</p>
+  <p style="margin-top:0.4rem; font-style:italic; opacity:0.7;">"You will find rest for your souls." — Matthew 11:29</p>
+</footer>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    document.getElementById('btn-' + id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function sendReflections() {
+    const name = document.getElementById('senderName').value.trim() || 'A Retreat Participant';
+    const email = document.getElementById('recipientEmail').value.trim();
+    const status = document.getElementById('email-status');
+
+    if (!email) {
+      status.textContent = 'Please enter a recipient email address.';
+      status.className = 'error';
+      return;
+    }
+
+    const prompts = [
+      { label: "OPENING — Word or phrase from Matthew 11:28–30", id: 'r1' },
+      { label: "TEACHING — Ministry fatigue reflection", id: 'r2' },
+      { label: "SILENCE — What I was carrying / what I released", id: 'r3' },
+      { label: "CONVERSATION — What God was doing in me", id: 'r4' },
+      { label: "EXAMEN — My one small step of surrender", id: 'r5' },
+      { label: "MY PRAYER", id: 'r6' }
+    ];
+
+    let body = `RESTING IN GOD — DMin Virtual Retreat Reflections\n`;
+    body += `${name}\n`;
+    body += `${'='.repeat(52)}\n\n`;
+    body += `Matthew 11:28 — "Come to me, all who labor and are heavy laden, and I will give you rest."\n\n`;
+    body += `${'='.repeat(52)}\n\n`;
+
+    prompts.forEach(p => {
+      const val = document.getElementById(p.id).value.trim();
+      body += `${p.label}\n`;
+      body += `${'-'.repeat(40)}\n`;
+      body += (val || '[No response entered]') + '\n\n';
+    });
+
+    body += `${'='.repeat(52)}\n`;
+    body += `"You will find rest for your souls." — Matthew 11:29\n`;
+    body += `Real Life Christian Communities · rlcc.ph\n`;
+
+    const subject = encodeURIComponent(`Retreat Reflections: Resting in God — ${name}`);
+    const bodyEncoded = encodeURIComponent(body);
+    const mailto = `mailto:${email}?subject=${subject}&body=${bodyEncoded}`;
+
+    window.location.href = mailto;
+
+    status.textContent = '✓ Your email app should open now with your reflections ready to send.';
+    status.className = 'success';
+  }
+</script>
+</body>
+</html>
